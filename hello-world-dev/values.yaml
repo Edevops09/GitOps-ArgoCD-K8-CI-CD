@@ -47,13 +47,13 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: securonix-dev.devopslearn.net
+    - host: securonix-cicd.devopslearn.net
       paths:
       - '/'
   tls:
-  - secretName: sc-dev-chart-tls
+  - secretName: sc-cicd-chart-tls
     hosts:
-    - securonix-dev.devopslearn.net
+    - securonix-cicd.devopslearn.net
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -68,9 +68,9 @@ resources: {}
   #   memory: 128Mi
 
 autoscaling:
-  enabled: false
+  enabled: true
   minReplicas: 1
-  maxReplicas: 100
+  maxReplicas: 10
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
